@@ -5,12 +5,14 @@ import * as tt from "@tomtom-international/web-sdk-maps";
 const App = () => {
   const mapElement = useRef();
   const [map, setMap] = useState({});
-  const mapLongitude = 28.97696;
-  const mapLatitude = 41.00527;
+
+  //istanbul koordinarları
+  const [mapLongitude, setLongitude] = useState(28.97696);
+  const [mapLatitude, setLatitude] = useState(41.00527);
 
   useEffect(() => {
     let map = tt.map({
-      key: "IWrAjYGUmAt4iJmyo92edhU1eOb8QxxO",
+      key: process.env.REACT_APP_TOM_TOM_APP_KEY,
       container: mapElement.current,
       center: [mapLongitude, mapLatitude],
       zoom: 14,
