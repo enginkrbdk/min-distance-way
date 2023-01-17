@@ -3,6 +3,7 @@ import "@tomtom-international/web-sdk-maps/dist/maps.css";
 import { useEffect, useRef, useState } from "react";
 
 import * as tt from "@tomtom-international/web-sdk-maps";
+import * as ttapi from "@tomtom-international/web-sdk-services";
 
 const App = () => {
   const mapElement = useRef();
@@ -12,7 +13,22 @@ const App = () => {
   const [mapLongitude, setLongitude] = useState(28.97696);
   const [mapLatitude, setLatitude] = useState(41.00527);
 
+  const addTargetMarker = (lngLat, map) => {
+    const element = document.createElement("div");
+    element.className = "marker-delivery";
+    new tt.Marker({
+      element: element,
+    })
+      .setLngLat(lngLat)
+      .addTo(map);
+  };
+
   useEffect(() => {
+    const origin = {
+      lng: mapLongitude,
+      lat: mapLatitude,
+    };
+
     let map = tt.map({
       key: process.env.REACT_APP_TOM_TOM_APP_KEY,
       container: mapElement.current,
@@ -50,6 +66,12 @@ const App = () => {
     };
 
     addMarker();
+
+    const destinations = [];
+    map.on("click", (e) => {
+      destinations.push(e.lngLat);
+      addTargetMarker(e.lngLat, map);
+    });
     return () => map.remove();
   }, [mapLongitude, mapLatitude]);
 
