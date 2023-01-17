@@ -1,6 +1,30 @@
-.map {
-  height: 800px;
+body {
+  display: flex;
+  justify-content: center;
+  background-image: url("C:/Projects/Special/min-distance-way/public/bg-1.png");
+  background-size: cover;
 }
+
 .app {
-  background-repeat: no-repeat;
+  height: 600px;
+  width: 100vh;
+  margin: 50px;
+  border-radius: 20px;
+}
+.map {
+  height: 100%;
+  width: 100%;
+  border-radius: 20px;
+  border: solid darkslategrey 3px;
+  background-size: cover;
+}
+
+.marker {
+  background-image: url("https://i.imgur.com/oz3r3Wq.png");
+  background-size: cover;
+  width: 22px;
+  height: 22px;
+  background-color: yellow;
+  border-radius: 11px;
+  border: solid 3px darkslategray;
 }
