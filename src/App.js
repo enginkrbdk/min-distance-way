@@ -1,5 +1,7 @@
-import { useEffect, useRef, useState } from "react";
 import "./App.css";
+import "@tomtom-international/web-sdk-maps/dist/maps.css";
+import { useEffect, useRef, useState } from "react";
+
 import * as tt from "@tomtom-international/web-sdk-maps";
 
 const App = () => {
@@ -15,16 +17,53 @@ const App = () => {
       key: process.env.REACT_APP_TOM_TOM_APP_KEY,
       container: mapElement.current,
       center: [mapLongitude, mapLatitude],
-      zoom: 14,
+      zoom: 15,
+      stylesVisibility: {
+        trafficFlow: true,
+        trafficIncidents: true,
+      },
     });
 
     setMap(map);
-  }, []);
+
+    const addMarker = () => {
+      const popupOffset = { bottom: [0, -25] };
+      const element = document.createElement("div");
+      element.className = "marker";
+      const popup = new tt.Popup({ offset: popupOffset }).setHTML(
+        "Şu an buradasın!"
+      );
+      const marker = new tt.Marker({
+        draggable: true,
+        element: element,
+      })
+        .setLngLat([mapLongitude, mapLatitude])
+        .addTo(map);
+
+      marker.on("dragend", () => {
+        const getPosition = marker.getLngLat();
+        setLatitude(getPosition.lat);
+        setLongitude(getPosition.lng);
+      });
+
+      marker.setPopup(popup).togglePopup();
+    };
+
+    addMarker();
+    return () => map.remove();
+  }, [mapLongitude, mapLatitude]);
 
   return (
-    <div className="app">
-      <div ref={mapElement} className="map"></div>
-    </div>
+    <>
+      {map && (
+        <div className="app">
+          <div ref={mapElement} className="map" />
+          <div className="search-bar">
+            <h1></h1>
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 
