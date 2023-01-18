@@ -1,5 +1,12 @@
 # Getting Started with Create React App
 
+# About Projet
+
+This project ensures that the most optimal route for garbage collection is found. 
+It instantly monitors conditions such as road conditions, accidents and traffic.
+Uses Tom Tom api as location and map technology.
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
