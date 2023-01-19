@@ -1,39 +1,49 @@
 body {
+  background-color: lightcyan;
+}
+#root {
+  overflow: hidden;
+  height: 100vh;
+  scroll-behavior: smooth;
+}
+.wrapper {
   display: flex;
-  justify-content: center;
-  background-image: url("C:/Projects/Special/min-distance-way/public/bg-1.png");
-  background-size: cover;
-}
-
-.app {
-  height: 600px;
-  width: 100vh;
-  margin: 50px;
-  border-radius: 20px;
-}
-.map {
   height: 100%;
-  width: 100%;
-  border-radius: 20px;
-  border: solid darkslategrey 3px;
-  background-size: cover;
 }
-
+.wrapper_inner {
+  width: 90%;
+  margin: 1rem auto;
+}
+main {
+  overflow-y: auto;
+  flex: 1 0 90%;
+  margin: 1rem 0px;
+}
+aside {
+  background: #36c;
+  color: #fff;
+  text-align: center;
+  flex: 1 0 10%;
+  padding: 1rem;
+}
+.map_wrapper {
+  margin-top: 32px;
+  height: 520px;
+  overflow: hidden;
+}
+.mapDiv {
+  margin-top: 16px;
+  height: 100%;
+}
+#truck {
+  background-image: url("../public/assets/garbage.png");
+  background-size: cover;
+  width: 32px;
+  height: 32px;
+}
 .marker {
-  background-image: url("https://i.imgur.com/oz3r3Wq.png");
+  background-image: url("../public/assets/garbage__transportation.png");
   background-size: cover;
-  width: 22px;
-  height: 22px;
-  background-color: yellow;
-  border-radius: 11px;
-  border: solid 3px darkslategray;
-}
-
-.marker-delivery {
-  background-image: url("https://i.imgur.com/cIooqnp.png");
-  background-size: cover;
-  width: 22px;
-  height: 22px;
-  border-radius: 15px;
-  border: solid darkslategrey 3px;
+  width: 32px;
+  height: 32px;
 }
