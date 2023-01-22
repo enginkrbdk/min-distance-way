@@ -35,13 +35,14 @@ aside {
   margin-top: 16px;
   height: 100%;
 }
+
 #truck {
   background-image: url("../public/assets/garbage.png");
   background-size: cover;
   width: 32px;
   height: 32px;
 }
-.marker {
+#marker {
   background-image: url("../public/assets/garbage__transportation.png");
   background-size: cover;
   width: 32px;
