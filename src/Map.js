@@ -123,6 +123,10 @@ function Map({ data, zoom_level, travel_mode }) {
       container: mapElement.current,
       center: [mapLongitude, mapLatitude], // Murtala Muhammed Airport
       zoom: zoom_level,
+      stylesVisibility: {
+        trafficIncidents: true,
+        trafficFlow: true,
+      },
     });
     map.addControl(new tt.FullscreenControl());
     map.addControl(new tt.NavigationControl());

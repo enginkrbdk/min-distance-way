@@ -19,7 +19,7 @@ const App = () => {
       <main>
         <div className="wrapper_inner">
           <div id="lagos">
-            <Map data={data_set_lagos} zoom_level={11} travel_mode="truck" />
+            <Map data={data_set_lagos} zoom_level={12} travel_mode="truck" />
           </div>
         </div>
       </main>
