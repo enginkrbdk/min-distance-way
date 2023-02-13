@@ -22,7 +22,13 @@ const App = () => {
             <Map data={data_set_lagos} zoom_level={12} travel_mode="truck" />
           </div>
         </div>
+        <div>
+          <h1>enerji tasarruf hesaplama</h1>
+        </div>
       </main>
+      <div>
+        <h1>co2 salınım hesaplama</h1>
+      </div>
     </div>
   );
 };

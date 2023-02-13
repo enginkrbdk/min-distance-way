@@ -171,15 +171,19 @@ function Map({ data, zoom_level, travel_mode }) {
     }
   }, [map]);
   return (
-    <div className="map_wrapper">
-      <button
-        className="btn"
-        disabled={map == null ? true : false}
-        onClick={optimize_routes}
-      >
-        Optimum Rotayı Oluştur
-      </button>
-      <div ref={mapElement} className="mapDiv" />
+    <div>
+      <div className="map_wrapper">
+        <button
+          className="btn"
+          disabled={map == null ? true : false}
+          onClick={optimize_routes}
+        >
+          Optimum Rotayı Oluştur
+        </button>
+        <div ref={mapElement} className="mapDiv" />
+      </div>
+
+      <h1>karbon ayak izi</h1>
     </div>
   );
 }
